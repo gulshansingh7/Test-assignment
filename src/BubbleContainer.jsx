@@ -64,12 +64,13 @@ const createBubbles = () => {
       y: 0,
       speed: Math.random() * 3 + 1,
       directionX: Math.random() > 0.5 ? 1 : -1, // Added directionX property
-      directionY: Math.random() > 0.5 ? 1 : -1, // Added directionY property
+      directionY: Math.random() > 0.7 ? 1 : -1, // Added directionY property
     };
     newBubbles.push(bubble);
   }
   setBubbles(newBubbles);
 };
+
 
 const moveBubbles = () => {
   setBubbles((prevBubbles) => {
@@ -107,8 +108,8 @@ useEffect(() => {
 
 const handleContainerMouseMove = (event) => {
   const containerRect = event.target.getBoundingClientRect();
-  const mouseX = event.clientX - containerRect.left;
-  const mouseY = event.clientY - containerRect.top;
+  const mouseX = event.clientX - containerRect.left+1;
+  const mouseY = event.clientY - containerRect.top-1;
 
   setBubbles((prevBubbles) => {
     return prevBubbles.map((bubble) => {
@@ -151,9 +152,9 @@ return (
           </div>
         ))}
       </div>
-      <a href="#" class="block mt-4 text-center text-white bg-blue-500 hover:bg-blue-600 py-2 px-4 rounded-lg">
-  Go somewhere that is on the .....
-</a>
+      {/* <a href="#" className="block mt-4 text-center text-white bg-gray-100 bg-opacity-50 hover:bg-blue-600 hover:bg-opacity-75 py-2 px-4 rounded-lg">
+         Go somewhere that is on the .....
+      </a> */}
 
 
     </div>
